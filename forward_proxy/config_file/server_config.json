@@ -1,0 +1,46 @@
+{
+  "inbounds": [
+    {
+      "port": 58888,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "acaa3092-fc14-496f-bddc-1f494e1c615e",
+            "alterId": 64
+          }
+        ]
+      }
+    },
+    {
+      "port": 1024,
+      "protocol": "shadowsocks",
+      "settings": {
+        "method": "aes-128-gcm",
+        "ota": true,
+        "password": "sspasswd"
+      }
+    },
+    {
+      "port": 1024,
+      "protocol": "http",
+      "settings": {
+        "timeout:": 0,
+        "accounts": [
+          {
+            "user": "my-username",
+            "pass": "my-password"
+          }
+        ],
+        "allowTransparent": false,
+        "userLevel": 0
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
+}
