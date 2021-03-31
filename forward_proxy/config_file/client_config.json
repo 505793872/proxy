@@ -1,4 +1,34 @@
 {
+ "log": {
+     "loglevel": "warning",
+	     "access": "D:\\v2ray\\access.log",
+		     "error": "D:\\v2ray\\error.log"
+			   },
+  "dns": {
+    "servers": [
+      {
+        "address": "119.29.29.29",
+        "port": 53,
+        "domains": [
+          "geosite:cn"
+        ],
+        "expectIPs": [
+          "geoip:cn"
+        ]
+      },
+      {
+        "address": "8.8.8.8",
+        "port": 53,
+        "domains": [
+          "geosite:geolocation-!cn",
+          "geosite:speedtest",
+          "ext:h2y.dat:gfw"
+        ]
+      },
+      "1.1.1.1",
+      "localhost"
+    ]
+  },
   "inbounds": [
     {
       "port": 1080,
@@ -69,6 +99,14 @@
           "allowInsecure": false
         }
       }
-    }
+    },
+	{
+	      "protocol": "freedom",
+		        "settings": {}
+				    },
+					    {
+						      "protocol": "blackhole",
+							        "settings": {}
+									    }
   ]
 }
