@@ -1,0 +1,23 @@
+FROM ubuntu:20.04
+LABEL "com.example.vendor"="DWNEWS Incorporated"
+LABEL com.example.label-with-value="foo"
+LABEL version="1.0.0"
+LABEL description="This text illustrates \
+that label-values can span multiple lines."
+LABEL maintainer="private@dwnews.com"
+ENV FOO=/bar
+WORKDIR ${FOO}
+ADD . ${FOO}
+COPY ${FOO} /quux
+# docker run -p 80:80/tcp -p 80:80/udp ...
+EXPOSE 80/tcp
+EXPOSE 80/udp
+# You can view the values using docker inspect, and change them using docker run --env <key>=<value>
+ENV MY_NAME="John Doe"
+ENV MY_DOG=Rex\ The\ Dog
+ARG MY_CAT=fluffy
+
+RUN ["/bin/bash","-c","apt-get update && apt-get install -y --force-yes apache2"]
+RUN ["/bin/bash","-c","git clone https://github.com/505793872/ubuntu.git"]
+RUN ["/bin/bash","-c", "echo hello"]
+CMD [ "sh","-c", "echo ${MY_NAME} ${MY_DOG},${MY_CAT}" ]
