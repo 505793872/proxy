@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  forward_proxy:
+    container_name: v2ray
+    build: .
+    ports:
+      - "38389:38389"
+    volumes:
+      - ./v2ray_server_config:/v2ray_config
+      - logvolume01:/var/log
+volumes:
+  logvolume01: {}

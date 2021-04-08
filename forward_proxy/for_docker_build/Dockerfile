@@ -21,11 +21,11 @@ ENV V2RAY_CONFIG_PATH=/etc/v2ray/
 ENV V2RAY_CONFIG_FILE=server_config.json
 # ARG V2RAY_CONFIG_PATH=/etc/v2ray/
 # WORKDIR ${V2RAY_CONFIG_PATH}
-ADD ./v2ray_server_config/${V2RAY_CONFIG_FILE} ${V2RAY_CONFIG_PATH}/config.json
+COPY ./v2ray_server_config/${V2RAY_CONFIG_FILE} ${V2RAY_CONFIG_PATH}/config.json
 # docker run -p 80:80/tcp -p 80:80/udp ...
 # WORKDIR ${V2RAY_CONFIG_PATH}
 # RUN cp server_config.json config.json
-EXPOSE 38388/tcp
+EXPOSE 38389/tcp
 # RUN echo ${V2RAY_CONFIG_PATH}
 # RUN echo "$1"
 # EXPOSE 38388/udp
